@@ -33,16 +33,16 @@ $(document).ready(function() {
   }
 
   // Function for creating a new list row for authors
-  // function createAuthorRow(authorData) {
-  //   var newTr = $("<tr>");
-  //   newTr.data("author", authorData);
-  //   newTr.append("<td>" + authorData.name + "</td>");
-  //   newTr.append("<td> " + authorData.Posts.length + "</td>");
-  //   newTr.append("<td><a href='/blog?author_id=" + authorData.id + "'>Go to Posts</a></td>");
-  //   newTr.append("<td><a href='/cms?author_id=" + authorData.id + "'>Create a Post</a></td>");
-  //   newTr.append("<td><a style='cursor:pointer;color:red' class='delete-author'>DONE</a></td>");
-  //   return newTr;
-  // }
+  function createAuthorRow(authorData) {
+    var newTr = $("<tr>");
+    newTr.data("author", authorData);
+    newTr.append("<td>" + authorData.name + "</td>");
+    newTr.append("<td> " + authorData.Posts.length + "</td>");
+    newTr.append("<td><a href='/blog?author_id=" + authorData.id + "'>See All</a></td>");
+    newTr.append("<td><a href='/cms?author_id=" + authorData.id + "'></a></td>");
+    newTr.append("<td><a style='cursor:pointer;color:red' class='delete-author'>Delete Category</a></td>");
+    return newTr;
+  }
 
   // Function for retrieving authors and getting them ready to be rendered to the page
   function getAuthors() {
@@ -73,7 +73,7 @@ $(document).ready(function() {
   function renderEmpty() {
     var alertDiv = $("<div>");
     alertDiv.addClass("alert alert-danger");
-    alertDiv.html("You must Create Problems before you have Problems.");
+    alertDiv.html("You must create a Category before you can create a Post.");
     authorContainer.append(alertDiv);
   }
 
